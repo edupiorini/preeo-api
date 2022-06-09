@@ -1,9 +1,10 @@
 import { Router } from "express";
+import { createSurveController } from "../services/useCases/createSurvey";
 
 export const surveysRoutes = Router();
 
 
-surveysRoutes.get('/', (req, res) => {
+surveysRoutes.post('/', (request, response) => {
 
-    return res.status(200).send({ message: 'Running!' });
+    return createSurveController.handle(request, response);
 })
