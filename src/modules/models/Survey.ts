@@ -9,6 +9,7 @@ export class Survey {
     isFuelEmissionWorried!: boolean;
     numberOfCars!: number;
     cars?: Array<Object>;
+    createdAt!: string;
 
     constructor() {
         this.id = uuidv4();
