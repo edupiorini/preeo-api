@@ -1,3 +1,5 @@
+import { Survey } from "../models/Survey";
+
 export interface ISurveysRepositoryDTO {
     gender: string;
     age: number;
@@ -20,4 +22,6 @@ export interface ISurveysRepository {
         numberOfCars,
         cars,
     }: ISurveysRepositoryDTO): void;
+
+    list(): Survey[];
 }

@@ -4,9 +4,22 @@ import { ISurveysRepository, ISurveysRepositoryDTO } from "../ISurveysRepository
 export class SurveysRepository implements ISurveysRepository {
     private surveys: Survey[];
 
-    constructor() {
+    private static INSTANCE: SurveysRepository;
+
+    private constructor() {
         this.surveys = [];
     }
+
+    public static getInstance() {
+        if (!SurveysRepository.INSTANCE) {
+            SurveysRepository.INSTANCE = new SurveysRepository();
+        }
+
+        return SurveysRepository.INSTANCE;
+    }
+
+
+
 
     create({
         age,
@@ -36,8 +49,13 @@ export class SurveysRepository implements ISurveysRepository {
 
         this.surveys.push(survey);
 
-        console.log(this.surveys);
     }
+
+    list(): Survey[] {
+        console.log(this.surveys);
+        return this.surveys;
+    }
+
 
 
 }
