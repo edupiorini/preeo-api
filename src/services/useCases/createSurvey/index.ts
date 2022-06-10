@@ -2,7 +2,7 @@ import { SurveysRepository } from "../../../modules/repositories/implementations
 import { CreateSurveyController } from "./CreateSurveyController";
 import { CreateSurveyUseCase } from "./CreateSurveyUseCase";
 
-const surveysRepository = new SurveysRepository();
+const surveysRepository = SurveysRepository.getInstance();
 const createSurveyUseCase = new CreateSurveyUseCase(surveysRepository);
 
 export const createSurveController = new CreateSurveyController(createSurveyUseCase);    
